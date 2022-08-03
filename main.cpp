@@ -3,7 +3,6 @@
 #include "string.h"
 using namespace std;
 
-
 int find_root(int x, int parent[]) {
     int root = x;
      
@@ -14,12 +13,14 @@ int find_root(int x, int parent[]) {
     return root;
 }
 
-int union_vertices(int x, int y, int parent[]) {
+int union_vertices(int x, int y, int parent[], int rank[]) {
     int x_root = find_root(x, parent);
     int y_root = find_root(y, parent);
 
     if (x_root != y_root) {
-        parent[x_root] = y_root;
+        if (rank[x_root] > rank[y_root]) {
+            
+        }
         return 1;
     } else {
         // 合并失败
