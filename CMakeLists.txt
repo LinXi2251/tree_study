@@ -1,6 +1,17 @@
-cmake_minimum_required(VERSION 3.0.0)
-project(tree_study VERSION 0.1.0)
+cmake_minimum_required (VERSION 3.0.0)
+project (main CXX)
 
-include_directories(src)
-aux_source_directory(src SRC_LIST)
-add_executable(tree_study ${SRC_LIST} main.cpp)
+SET(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+SET(CMAKE_CXX_COMPILER "clang++")
+SET(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES  ${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES})
+
+include_directories(include)
+file(GLOB SRC src/*.cpp)
+add_executable(main ${SRC})
+
+add_custom_target(
+	copy-compile-commands ALL
+	${CMAKE_COMMAND} -E copy_if_different
+	${CMAKE_BINARY_DIR}/compile_commands.json
+	${CMAKE_CURRENT_LIST_DIR}
+)
