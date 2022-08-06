@@ -1,6 +1,6 @@
 #include "binary_search.h"
 #include "comm.h"
-#include "tree.h"
+#include "sqlist_tree.h"
 int pre = -1;
 int is_T = 1;
 void inorder_binary_tree(Sqlist tree, int root) {

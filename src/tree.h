@@ -1,12 +1,14 @@
 
 #ifndef _TREE_H
 #define _TREE_H
-typedef struct Sqlist {
-    int* data;
-    int num;
-    Sqlist(int* x, int n) : data(x), num(n) {}
-} Sqlist;
-void pre_order(Sqlist tree, int root);
-void in_order(Sqlist tree, int root);
-void post_order(Sqlist tree, int root);
+#include "iostream"
+typedef struct TreeNode {
+    char val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(char _val) { val = _val, left = NULL, right = NULL; };
+} *Tree;
+
+void pre_order(Tree root);
+
 #endif
