@@ -1,14 +1,15 @@
-#include "binary_search.h"
-#include "sqlist_tree.h"
 #include "comm.h"
 #include "iostream"
+#include "tree.h"
+#include "btree_to_exp.h"
 using namespace std;
 
 int main() {
-    int arr[] = {5, 2, 7, 1, 4, 6, 8};
-    int n = sizeof(arr) / sizeof(int);
-    Sqlist tree(arr, n);
-    int ans = is_binary_tree(tree);
-    cout << "ans: " << ans << endl;
+    char arr[] = {'+', '*', '-', 'a', 'b', '#', '-', '#',
+                  '#', '#', '#', 'c', 'd'};
+    int n = sizeof(arr) / sizeof(char);
+    Tree T;
+    T = build_tree_level(arr, n);
+    BtreeToExp(T, 0);
     return 0;
 }
